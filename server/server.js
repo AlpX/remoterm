@@ -144,7 +144,6 @@ io.sockets.on('connection', function(sock) {
   
   socket.on('data', function(data) {
     if(loggedIn==true && targetClient!=-1) { // is logged in and a target is selected
-        if (stream) stream.write('IN: ' + data + '\n-\n');
              midsockOfWeb.emit('data', data);
     }
   });
@@ -338,8 +337,7 @@ io_from_middlewares.on('connection', function (socketfrommid) {  // 3008
         var ind=webMidTargetarr.indexOf(midID); 
         if(ind!=-1) {
             websock=webSocketarr[ind];
-            if (websock) { 
-                if (stream) stream.write('OUT: ' + data + '\n-\n');
+            if (websock) {
                 !websock ? buff.push(data) : websock.emit('data', data);
             }
         }

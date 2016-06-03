@@ -17,7 +17,7 @@ Server:
 =======
 /server/server.js:
 Change the following variables for self.
-var username= 'username'; 
+var username= 'username';
 var password= 'yourpassword';
 -----
 *You should create your own ssl certs and use them instead of dummy ones I created.
