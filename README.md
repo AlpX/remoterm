@@ -41,7 +41,7 @@ https://github.com/foreverjs/forever
 Go to your server's remoterm webui from browser:
 https://yourserverip:3007/
 Write your username and password. Login. Then client on the client you want to control remotely from connected client list.
-
+![remotermalpx](https://cloud.githubusercontent.com/assets/1581359/15782508/4a717dac-29b3-11e6-9a37-290e52ab0360.png)
 
 Contribution and License Agreement
 
