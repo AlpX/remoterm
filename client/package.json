@@ -1,0 +1,15 @@
+{
+  "name": "remotermclient",
+  "version": "0.0.1",
+  "description": "remoterm client app",
+  "main": "./client.js",
+  "author": {
+    "name": "alpx",
+    "email": "mail@alpx.io"
+  },
+  "private": true,
+  "dependencies": {
+    "pty.js": "*",
+    "socket.io-client": "^1.3.5"
+  }
+}

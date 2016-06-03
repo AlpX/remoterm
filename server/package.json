@@ -1,0 +1,16 @@
+{
+  "name": "remotermserver",
+  "version": "0.0.1",
+  "description": "remoterm server application",
+  "main": "./server.js",
+  "author": {
+    "name": "alpx",
+    "email": "mail@alpx.io"
+  },
+  "private": true,
+  "dependencies": {
+    "socket.io": "^1.3.5",
+    "express": "*",
+    "term.js": "*"
+  }
+}

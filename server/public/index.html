@@ -1,0 +1,188 @@
+<!doctype html>
+
+<title>Welcome to Remoterm ~Alp_X</title>
+
+<html ng-app="termserverApp">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="termserverapp.js"></script> 
+  <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
+</head>
+<body>
+  
+<div ng-controller="termController">
+
+
+<div ng-switch on="slideSelection">
+
+  <div class="animate-if" ng-switch-when="loginslide"> 
+
+    <table>
+      <tr>
+          <td>
+                <label for="usr">User:</label>
+          </td>
+          <td>
+                <input type="text" class="form-control" id="usr">
+          </td>
+      </tr>
+      <tr>
+          <td>
+                <label for="pwd">Password:</label>
+          </td>
+          <td>
+                <input type="password" class="form-control" id="pwd">
+          </td>
+      </tr>
+      <tr>
+          <td>
+              <button type="button" id="" class="btn" ng-click="login()">Login</button>
+          </td>
+          <td>
+              <button type="button" id="" class="btn" ng-click="logout()">Logout</button>
+          </td>
+          <td>
+              <div ng-if="isloggedIn">You are loggin in : {{loginName}}</div>
+              <div ng-if="!isloggedIn">Not Logged In</div>
+          </td>
+      </tr>
+    </table>
+
+  </div>
+  
+    <table>
+    <tr ng-if="clientList.length>0">
+        <td colspan=3>
+            <h2>Connected Client List:</h2>
+        </td>
+    </tr>
+    <tr ng-if="clientList.length>0">
+        <td colspan=3>
+            Click to Open a Terminal
+        </td>
+    </tr>
+    <tr  ng-repeat="client in clientList">
+        <td>
+                  <a ng-click="changeMidsock($index)" href="" >{{client}}</a>
+        </td>
+        <td>
+                  <div>user:{{ loggedInUserList[$index] }}</div>
+        </td>
+        <td>
+                  <div style="color:#FF0000" ng-if="loggedInUserList[$index]=='No One'">Offline</div>
+                  <div style="color:#00FF00" ng-if="loggedInUserList[$index]!='No One'">Online</div>
+        </td>
+    </tr>
+    </table>
+
+<!--
+  term.js
+  Copyright (c) 2012-2013, Christopher Jeffrey (MIT License)
+-->
+
+<style>
+  html {
+    background: #FFFFFF;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font: 20px/1.5 sans-serif;
+  }
+
+  .terminal {
+    float: left;
+    border: #000 solid 5px;
+    font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+    font-size: 11px;
+    color: #f0f0f0;
+    background: #000;
+  }
+
+  .terminal-cursor {
+    color: #000;
+    background: #f0f0f0;
+  }
+
+</style>
+    <div ng-if="selectedClient!=-1">
+    <h1>Selected Terminal: {{clientList[selectedClient]}}</h1>
+
+        Applications:
+        <table width="100px" border=1>
+          <tr>
+            <td>
+          type
+                  </td>
+            <td>
+          name
+                  </td>
+            <td>
+          status
+                  </td>
+            <td>
+          pids
+                  </td>
+            <td>
+           -
+                  </td>
+            <td>
+           -
+                  </td>
+          </tr>
+          <tr  ng-repeat="stat in prgstats">
+            <td>
+          {{stat.type}}
+                  </td>
+            <td>
+          {{stat.prgname}}
+                  </td>
+            <td>
+          <div ng-show="stat.led==0" id="redled" style='border: 5px solid red; border-radius: 7px; width: 7px; height: 7px;'></div>
+          <div ng-show="stat.led==1" id="greenled" style='border: 5px solid #12F729; border-radius: 7px; width: 7px; height: 7px;'></div>
+          {{stat.status}}
+                  </td>
+            <td>
+          {{stat.pid}}
+                  </td>
+            <td>
+          <button type="button" class="btn btn-primary" ng-click="killprg($index)">Kill</button>
+                  </td>
+            <td>
+          <button type="button" class="btn btn-primary" ng-click="restartprg($index)">Restart</button>
+                  </td>
+          </tr>
+        </table>
+
+        <!-- 
+        <table>
+            <tr>
+              <td>
+            {{changedate}}
+                    </td>
+            </tr>
+            <tr>
+              <td colspan=5>
+            <textarea id="nohuplogarea" spellcheck="false" cols='100' rows='20' style="border:1px solid #ccc;font:13px/13px Georgia, modern, Serif;overflow:auto;background-color:black;color:white;">
+            {{nohuplog}}
+            </textarea>
+                    </td>
+             </tr>
+             <tr>
+              <td>
+              <button type="button" class="btn btn-primary" ng-click="openTerminal()">Open Terminal</button>
+                    </td>
+            </tr>
+          </table>
+          -->
+    </div>
+
+Developed by <a href="http://alpx.io">~Alp_X 2016</a>
+    <script src="term.js"></script>
+</div>
+</body>
+</html>
