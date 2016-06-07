@@ -18,6 +18,7 @@ Server:
 /server/server.js:
 Change the following variables for self.
 var username= 'username';
+
 var password= 'yourpassword';
 -----
 *You should create your own ssl certs and use them instead of dummy ones I created.
@@ -32,7 +33,11 @@ Change localhost to your server's ip. By default remoterm server uses port 3008.
 var serverip = 'https://localhost:3008';
 Change the following variable to name your remoterm client.
 var clientid = 'AlpX Remote Client 1';
-'npm install' in /client folder. run:
+'npm install' in /client folder.
+If you get an error about pty.js during npm install, the following may resolve the problem:
+Install node-gyp on your system:
+sudo apt-get install node-gyp
+run:
 nodejs client.js
 
 > for leaving your nodejs applications running you can use forever. I use it for mine :) It is great!
