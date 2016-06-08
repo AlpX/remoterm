@@ -16,7 +16,7 @@ git clone https://github.com/AlpX/remoterm.git
 ## Server:
 =======
 /server/server.js:
-Change the following variables for self.
+Change the following variables for yourself.
 
 `var username= 'username';`
 
