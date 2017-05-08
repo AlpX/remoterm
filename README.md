@@ -12,6 +12,14 @@ Alp Burak Pehlivan
 
 # How to use:
 git clone https://github.com/AlpX/remoterm.git
+go to client folder or server folder:
+npm install
+nodejs client.js
+or
+nodejs server.js
+- If you have a problem with pty.js installation during npm install, you can try my solution: 
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+then try npm install again.
 
 ## Server:
 =======
